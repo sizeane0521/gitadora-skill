@@ -29,7 +29,7 @@
           if (params.p !== undefined) {
             window.history.replaceState(
               null, null,
-              l.pathname + (params.p || '') + (params.q ? '?' + params.q : '') + l.hash
+              l.pathname.replace(/\/$/, '') + (params.p || '') + (params.q ? '?' + params.q : '') + l.hash
             );
           }
         }
