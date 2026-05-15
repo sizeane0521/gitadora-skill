@@ -1,0 +1,458 @@
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&family=Chakra+Petch:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 20% 98%;
+    --foreground: 220 14% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 14% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 14% 10%;
+
+    --primary: 187 100% 42%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 276 80% 50%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 220 14% 92%;
+    --muted-foreground: 215 14% 46%;
+
+    --accent: 276 80% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 156 72% 40%;
+
+    --border: 220 13% 90%;
+    --input: 220 14% 92%;
+    --ring: 187 100% 42%;
+
+    --radius: 0.25rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 220 14% 10%;
+    --sidebar-primary: 187 100% 42%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 14% 92%;
+    --sidebar-accent-foreground: 220 14% 10%;
+    --sidebar-border: 220 13% 90%;
+    --sidebar-ring: 187 100% 42%;
+
+    --font-display: 'Russo One', 'Chakra Petch', sans-serif;
+    --font-body: 'Inter', sans-serif;
+
+    --diff-bsc: 187 100% 42%;
+    --diff-adv: 45 100% 50%;
+    --diff-ext: 0 85% 55%;
+    --diff-mas: 276 80% 50%;
+
+    --instrument-guitar: 150 80% 45%;
+    --instrument-bass: 28 90% 52%;
+    --instrument-drums: 276 80% 50%;
+  }
+
+  .dark {
+    --background: 240 40% 10%;
+    --foreground: 0 0% 100%;
+
+    --card: 240 35% 13%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 240 35% 13%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 187 100% 50%;
+    --primary-foreground: 240 6% 4%;
+
+    --secondary: 276 99% 53%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 240 5% 14%;
+    --muted-foreground: 215 17% 63%;
+
+    --accent: 276 99% 53%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 156 100% 50%;
+
+    --border: 240 5% 18%;
+    --input: 240 5% 14%;
+    --ring: 187 100% 50%;
+
+    --diff-bsc: 187 100% 50%;
+    --diff-adv: 45 100% 55%;
+    --diff-ext: 0 85% 60%;
+    --diff-mas: 276 99% 53%;
+
+    --instrument-guitar: 150 80% 55%;
+    --instrument-bass: 28 90% 58%;
+    --instrument-drums: 276 99% 53%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html, body {
+    overscroll-behavior-y: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  input, textarea {
+    -webkit-user-select: auto;
+    user-select: auto;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}
+
+/* ============================================================
+   SIZ_GITADORA Design System Tokens
+   GF mode is default; switch via data-instrument="dm"
+   Dark mode via data-theme="dark"
+   ============================================================ */
+
+:root {
+  /* Neutral — Zinc */
+  --neutral-50: #FAFAFA;
+  --neutral-100: #F4F4F5;
+  --neutral-200: #E4E4E7;
+  --neutral-300: #D4D4D8;
+  --neutral-400: #A1A1AA;
+  --neutral-500: #71717A;
+  --neutral-600: #52525B;
+  --neutral-700: #3F3F46;
+  --neutral-800: #27272A;
+  --neutral-900: #18181B;
+
+  /* Secondary — Violet */
+  --violet-50: #F5F0FF;
+  --violet-100: #EDE0FF;
+  --violet-200: #D4BFFF;
+  --violet-300: #BB99FF;
+  --violet-400: #9E6EFF;
+  --violet-500: #7C3AED;
+  --violet-600: #6828D4;
+  --violet-700: #5218B0;
+  --violet-800: #3D1085;
+  --violet-900: #2A0A5E;
+
+  /* Accent — Lime */
+  --lime-50: #F7FEE7;
+  --lime-100: #ECFCCB;
+  --lime-200: #D9F99D;
+  --lime-300: #CEEF5A;
+  --lime-400: #BCEF48;
+  --lime-500: #A3E635;
+  --lime-600: #85C21A;
+  --lime-700: #669E0F;
+  --lime-800: #4C7A0A;
+  --lime-900: #325206;
+
+  /* Success */
+  --success-50: #F0FDF4;
+  --success-500: #22C55E;
+  --success-600: #16A34A;
+  --success-900: #14532D;
+
+  /* Warning */
+  --warning-50: #FFFBEB;
+  --warning-500: #F59E0B;
+  --warning-600: #D97706;
+  --warning-900: #78350F;
+
+  /* Error */
+  --error-50: #FFF1F2;
+  --error-500: #F43F5E;
+  --error-600: #E11D48;
+  --error-900: #881337;
+
+  /* Info */
+  --info-50: #EFF6FF;
+  --info-500: #3B82F6;
+  --info-600: #2563EB;
+  --info-900: #1E3A8A;
+
+  /* Game State */
+  --skill-gold: #FFD700;
+  --skill-gold-dark: #B8860B;
+  --skill-gold-bg: #FFFBCC;
+  --exc-pink: #FF4081;
+  --exc-pink-dark: #C2185B;
+  --exc-pink-bg: #FCE4EC;
+
+  /* Semantic Tokens — Light Mode (default GF) */
+  --color-bg-primary: var(--neutral-50);
+  --color-bg-secondary: var(--neutral-100);
+  --color-bg-elevated: #FFFFFF;
+  --color-border-default: var(--neutral-300);
+  --color-border-strong: var(--neutral-400);
+  --color-text-primary: var(--neutral-900);
+  --color-text-secondary: var(--neutral-600);
+  --color-text-muted: var(--neutral-500);
+  --color-text-disabled: var(--neutral-400);
+  --color-success: var(--success-500);
+  --color-success-subtle: var(--success-50);
+  --color-warning: var(--warning-500);
+  --color-warning-subtle: var(--warning-50);
+  --color-error: var(--error-500);
+  --color-error-subtle: var(--error-50);
+  --color-info: var(--info-500);
+  --color-info-subtle: var(--info-50);
+
+  /* Arcade Neon — Physical Color Tokens */
+  --neon-cyan:   #00F0FF; /* == dm-500 */
+  --neon-pink:   #FF1B8D; /* == gf-500 */
+  --neon-lime:   #C6FF1A;
+  --neon-purple: #B026FF;
+  --neon-amber:  #FFB100;
+  --bg-void:     #05030E;
+  --bg-deep:     #0A051A;
+  --bg-card:     rgba(255,255,255,0.025);
+  --bg-grid:     #1a1a2e;
+  --bg-mute:     #222;
+  --text-dim:    #555;
+  --skill-neon:  #C6FF1A;
+  --glow-sm:     0 0 6px var(--neon-cyan);
+  --glow-md:     0 0 10px var(--neon-cyan), 0 0 24px color-mix(in srgb, var(--neon-cyan) 50%, transparent);
+
+  /* Arcade Neon — Spacing Tokens */
+  --space-1: 2px;
+  --space-2: 4px;
+  --space-3: 6px;
+  --space-4: 8px;
+  --space-5: 12px;
+  --space-6: 16px;
+  --space-7: 22px;
+
+  /* Typography */
+  --font-sans: "Inter", "Noto Sans TC", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Border Radius (Subtle) */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+
+  /* Shadows (Subtle) */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md: 0 2px 4px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-lg: 0 4px 8px rgba(0,0,0,0.06), 0 2px 4px rgba(0,0,0,0.04);
+  --shadow-xl: 0 8px 16px rgba(0,0,0,0.08), 0 4px 8px rgba(0,0,0,0.04);
+  --shadow-2xl: 0 16px 32px rgba(0,0,0,0.10), 0 8px 16px rgba(0,0,0,0.06);
+}
+
+/* GF mode primary scale — base #FF1B8D (neon pink) at 500 */
+[data-instrument="gf"],
+:root {
+  --gf-50:  #FFE8F4;
+  --gf-100: #FFD1E8;
+  --gf-200: #FFAFD7;
+  --gf-300: #FF82C0;
+  --gf-400: #FF54AA;
+  --gf-500: #FF1B8D;
+  --gf-600: #CC1671;
+  --gf-700: #991055;
+  --gf-800: #660B38;
+  --gf-900: #33051C;
+  --gf-950: #1A030E;
+
+  --color-brand: var(--gf-500);
+  --color-brand-hover: var(--gf-600);
+  --color-brand-subtle: var(--gf-50);
+  --color-brand-400: var(--gf-400);
+  --color-brand-900: var(--gf-900);
+}
+
+/* DM mode primary scale — base #00F0FF (neon cyan) at 500 */
+[data-instrument="dm"] {
+  --dm-50:  #E6FEFF;
+  --dm-100: #CCFCFF;
+  --dm-200: #A6FAFF;
+  --dm-300: #73F7FF;
+  --dm-400: #40F4FF;
+  --dm-500: #00F0FF;
+  --dm-600: #00C0CC;
+  --dm-700: #009099;
+  --dm-800: #006066;
+  --dm-900: #003033;
+  --dm-950: #00181A;
+
+  --color-brand: var(--dm-500);
+  --color-brand-hover: var(--dm-600);
+  --color-brand-subtle: var(--dm-50);
+  --color-brand-400: var(--dm-400);
+  --color-brand-900: var(--dm-900);
+}
+
+/* Dark mode semantic token overrides */
+[data-theme="dark"] {
+  --color-bg-primary: #05030E;
+  --color-bg-secondary: #0A051A;
+  --color-bg-elevated: rgba(255,255,255,0.03);
+  --color-border-default: #1a1a2e;
+  --color-border-strong: #2A2A45;
+  --color-text-primary: var(--neutral-50);
+  --color-text-secondary: var(--neutral-400);
+  --color-text-muted: var(--neutral-500);
+  --color-text-disabled: var(--neutral-600);
+  --color-success: #4ADE80;
+  --color-success-subtle: var(--success-900);
+  --color-warning: #FBBF24;
+  --color-warning-subtle: var(--warning-900);
+  --color-error: #FB7185;
+  --color-error-subtle: var(--error-900);
+  --color-info: #60A5FA;
+  --color-info-subtle: var(--info-900);
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
+  --shadow-md: 0 2px 4px rgba(0,0,0,0.35), 0 1px 2px rgba(0,0,0,0.25);
+  --shadow-lg: 0 4px 8px rgba(0,0,0,0.35), 0 2px 4px rgba(0,0,0,0.25);
+  --shadow-xl: 0 8px 16px rgba(0,0,0,0.4), 0 4px 8px rgba(0,0,0,0.3);
+  /* Neon diff colors */
+  --diff-bsc: 185 100% 50%;
+  --diff-adv: 42 100% 50%;
+  --diff-ext: 326 100% 55%;
+  --diff-mas: 284 100% 57%;
+}
+
+/* Dark mode: GF brand brightens */
+[data-theme="dark"][data-instrument="gf"],
+[data-theme="dark"] {
+  --color-brand: var(--gf-400, #FF54AA);
+  --color-brand-hover: var(--gf-300, #FF82C0);
+  --color-brand-subtle: var(--gf-900, #33051C);
+}
+
+[data-theme="dark"][data-instrument="dm"] {
+  --color-brand: var(--dm-400);
+  --color-brand-hover: var(--dm-300);
+  --color-brand-subtle: var(--dm-900);
+}
+
+/* Mode transition */
+[data-instrument] {
+  transition: --color-brand 300ms ease-in-out;
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+  .font-body {
+    font-family: var(--font-body);
+  }
+  .glow-primary {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.15);
+  }
+  .glow-secondary {
+    box-shadow: 0 0 20px hsl(var(--secondary) / 0.15);
+  }
+  .accent-line-primary {
+    border-left: 3px solid hsl(var(--primary));
+  }
+  .accent-line-secondary {
+    border-left: 3px solid hsl(var(--secondary));
+  }
+  .text-diff-bsc {
+    color: hsl(var(--diff-bsc));
+  }
+  .text-diff-adv {
+    color: hsl(var(--diff-adv));
+  }
+  .text-diff-ext {
+    color: hsl(var(--diff-ext));
+  }
+  .text-diff-mas {
+    color: hsl(var(--diff-mas));
+  }
+  .bg-diff-bsc {
+    background-color: hsl(var(--diff-bsc) / 0.15);
+  }
+  .bg-diff-adv {
+    background-color: hsl(var(--diff-adv) / 0.15);
+  }
+  .bg-diff-ext {
+    background-color: hsl(var(--diff-ext) / 0.15);
+  }
+  .bg-diff-mas {
+    background-color: hsl(var(--diff-mas) / 0.15);
+  }
+  /* Neon glow utilities — active only in dark mode */
+  .glow-neon {
+    box-shadow: none;
+  }
+  .glow-neon-md {
+    box-shadow: none;
+  }
+  .skill-neon-glow {
+    text-shadow: none;
+  }
+}
+
+[data-theme="dark"] .glow-neon {
+  box-shadow: 0 0 6px var(--neon-cyan);
+}
+[data-theme="dark"] .glow-neon-md {
+  box-shadow: 0 0 10px var(--neon-cyan), 0 0 24px color-mix(in srgb, var(--neon-cyan) 50%, transparent);
+}
+[data-theme="dark"] .skill-neon-glow {
+  text-shadow: 0 0 10px var(--neon-lime), 0 0 24px color-mix(in srgb, var(--neon-lime) 50%, transparent);
+}
+
+/* Arcade Neon — Dark Mode Atmosphere */
+[data-theme="dark"] body {
+  background-image:
+    radial-gradient(ellipse at top, rgba(176,38,255,0.22), transparent 60%),
+    radial-gradient(ellipse at bottom, rgba(255,27,141,0.14), transparent 70%),
+    linear-gradient(180deg, #0A051A 0%, #05030E 100%);
+}
+
+[data-theme="dark"] body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: linear-gradient(
+    180deg,
+    transparent 0px, transparent 2px,
+    rgba(0,240,255,0.022) 2px, rgba(0,240,255,0.022) 3px
+  );
+  background-size: 100% 3px;
+}
+
+[data-theme="dark"] body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,0.55) 100%);
+  mix-blend-mode: multiply;
+}
