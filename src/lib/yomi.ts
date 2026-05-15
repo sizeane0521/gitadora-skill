@@ -77,7 +77,7 @@ async function getKuroshiro() {
         import("kuroshiro-analyzer-kuromoji"),
       ]);
       const k = new Kuroshiro();
-      await k.init(new KuromojiAnalyzer({ dictPath: "/dict/" }));
+      await k.init(new KuromojiAnalyzer({ dictPath: `${import.meta.env.BASE_URL}dict/` }));
       _kuroshiro = k;
     })();
   }
